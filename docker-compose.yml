@@ -12,7 +12,8 @@ services:
   frontend:
     image: nginx:alpine
     ports:
-      - "8080:80"
+      - "8081:80"
     volumes:
       - ./frontend:/usr/share/nginx/html:ro
     restart: unless-stopped
+

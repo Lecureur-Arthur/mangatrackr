@@ -1,12 +1,18 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   fetch('/api/mangas')
     .then(response => response.json())
     .then(data => {
       const mangasList = document.getElementById('mangas-list');
       data.forEach(manga => {
-        const li = document.createElement('li');
-        li.textContent = `${manga.title} by ${manga.author}`;
-        mangasList.appendChild(li);
+        const card = document.createElement('div');
+        card.classList.add('manga-card');
+
+        card.innerHTML = `
+          <h2>${manga.title}</h2>
+          <p><strong>Auteur :</strong> ${manga.author}</p>
+        `;
+
+        mangasList.appendChild(card);
       });
     })
     .catch(error => console.error('Erreur :', error));
