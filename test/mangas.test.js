@@ -15,7 +15,9 @@ describe('GET /api/mangas', () => {
 
     // Vérifie qu'il y a au moins un manga et qu'il a un champ titre
     if (res.body.length > 0) {
-      expect(res.body[0]).toHaveProperty('titre');
+        expect(res.body[0]).toHaveProperty('id');
+        expect(res.body[1]).toHaveProperty('title');
+        expect(res.body[2]).toHaveProperty('author');
     }
   });
 });
