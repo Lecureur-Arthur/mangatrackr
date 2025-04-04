@@ -1,0 +1,15 @@
+# Node
+node_modules/
+npm-debug.log
+.env
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# System
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
