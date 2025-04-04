@@ -1,21 +1,18 @@
 version: '3.8'
 
 services:
-  web:
+  backend:
     build: .
     ports:
       - "3000:3000"
     volumes:
       - .:/app
-    depends_on:
-      - mongo
+    restart: unless-stopped
 
-  mongo:
-    image: mongo
+  frontend:
+    image: nginx:alpine
     ports:
-      - "27017:27017"
+      - "8080:80"
     volumes:
-      - mongodata:/data/db
-
-volumes:
-  mongodata:
+      - ./frontend:/usr/share/nginx/html:ro
+    restart: unless-stopped
