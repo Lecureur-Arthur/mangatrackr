@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 // Importe et utilise ta route comme dans server.js
-const mangasRoutes = require('../routes/mangas');
+const mangasRoutes = require('../backend/routes/mangas');
 app.use('/api/mangas', mangasRoutes);
 
 describe('GET /api/mangas', () => {
