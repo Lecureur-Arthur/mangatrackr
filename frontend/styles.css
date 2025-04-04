@@ -45,3 +45,11 @@ h1 {
   font-size: 1.1em;
   color: #2A3D66;
 }
+
+.cover-image {
+  max-width: 150px;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

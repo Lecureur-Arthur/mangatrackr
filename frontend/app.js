@@ -8,9 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
         card.classList.add('manga-card');
 
         card.innerHTML = `
-          <h2>${manga.title}</h2>
-          <p><strong>Auteur :</strong> ${manga.author}</p>
-        `;
+        <img src="${manga.coverImage}" alt="Couverture de ${manga.title}" class="cover-image" />
+        <h2>${manga.title}</h2>
+        <h3>Auteur : ${manga.author}</h3>
+        <p>${manga.synopsis}</p>
+      `;
 
         mangasList.appendChild(card);
       });
