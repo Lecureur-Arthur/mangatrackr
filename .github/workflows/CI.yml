@@ -1,4 +1,4 @@
-name: CI
+name: Node.js CI
 
 on:
   push:
@@ -11,30 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
-        cache-dependency-path: 'backend/package-lock.json'
+      - uses: actions/checkout@v3
 
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+      - name: Install dependencies
+        run: |
+          cd backend
+          npm install
 
-    - name: Clean previous Docker containers
-      run: docker system prune -af
-
-    - name: Build and test containers
-      run: |
-        docker-compose -f docker-compose.yml build
-        docker-compose -f docker-compose.yml up -d
-
-    - name: Check running containers
-      run: docker ps
-
-    - name: Stop containers
-      if: always()
-      run: docker-compose -f docker-compose.yml down
+      - name: Run tests
+        run: |
+          cd backend
+          npm test
