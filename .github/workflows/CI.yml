@@ -11,6 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: 'backend/package-lock.json'
+
     - name: Checkout repo
       uses: actions/checkout@v3
 
@@ -27,15 +34,6 @@ jobs:
 
     - name: Check running containers
       run: docker ps
-
-    - name: Optional - curl frontend test
-      run: |
-        sleep 10
-        curl -I http://localhost:80 || true
-
-    - name: Optional - API health check
-      run: |
-        curl -I http://localhost:3000 || true
 
     - name: Stop containers
       if: always()
