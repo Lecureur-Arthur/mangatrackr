@@ -1,16 +1,14 @@
 const express = require('express');
-const path = require('path');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 
-// Pour servir les fichiers statiques comme index.html, styles.css, app.js, etc.
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(cors()); // utile si le frontend est sur un autre port
 
-// Route API (par exemple pour les mangas)
+// Route API
 const mangasRouter = require('./routes/mangas');
 app.use('/api/mangas', mangasRouter);
 
-// Lancer le serveur
 app.listen(port, () => {
-  console.log(`Serveur démarré à http://localhost:${port}`);
+  console.log(`Serveur backend en ligne sur http://localhost:${port}`);
 });
