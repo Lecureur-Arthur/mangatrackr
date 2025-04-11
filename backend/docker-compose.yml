@@ -1,18 +1,16 @@
-version: '3.8'
-
 services:
   backend:
-    build: .
+    build:
+      context: ./backend
+    container_name: mangatrackr-backend
     ports:
       - "3000:3000"
-    volumes:
-      - .:/app
     restart: unless-stopped
 
   frontend:
-    image: nginx:alpine
+    build:
+      context: ./frontend
+    container_name: mangatrackr-frontend
     ports:
-      - "8080:80"
-    volumes:
-      - ./frontend:/usr/share/nginx/html:ro
+      - "80:80"
     restart: unless-stopped

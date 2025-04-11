@@ -1,0 +1,55 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F2D8C9; /* Fond beige rosé */
+  color: #2A3D66;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #E2848D;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+#mangas-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* plus large */
+  gap: 30px;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+.manga-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.manga-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.manga-card h2 {
+  margin: 0 0 15px 0;
+  color: #E2848D;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6em;
+}
+
+.manga-card p {
+  margin: 0;
+  font-size: 1.1em;
+  color: #2A3D66;
+}
+
+.cover-image {
+  max-width: 150px;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
